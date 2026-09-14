@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura Atelier | Bespoke Tailoring & Couture</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- CSS Variables & Theme --- */
+    :root {
+      --primary: #121212;
+      --secondary: #b89758;
+      --secondary-hover: #9e7f43;
+      --light-bg: #f8f7f5;
+      --card-bg: #ffffff;
+      --text-main: #2b2b2b;
+      --text-muted: #6e6e6e;
+      --border-color: #e5e5e5;
+      
+      --font-title: 'Cinzel', serif;
+      --font-body: 'Montserrat', sans-serif;
+      
+      --transition: all 0.3s ease-in-out;
+    }
+
+    /* --- Base Resets --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background-color: var(--card-bg);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* --- Section Formatting --- */
+    .section {
+      padding: 5rem 8%;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .sub-heading {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--secondary);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background-color: var(--secondary);
+      margin: 0.8rem auto 0;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-gold {
+      background-color: var(--secondary);
+      color: #fff;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--secondary-hover);
+    }
+
+    .btn-outline {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background-color: #fff;
+      color: var(--primary);
+    }
+
+    .btn-dark {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    .btn-dark:hover {
+      background-color: var(--secondary);
+    }
+
+    .btn-full {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* --- Navigation Bar --- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 8%;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .cart-btn {
+      position: relative;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: var(--secondary);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      height: 88vh;
+      background: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero-subtitle {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-title);
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      color: #e0e0e0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* --- Features Bar --- */
+    .features-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      background-color: var(--light-bg);
+      padding: 2.5rem 8%;
+      gap: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .feature-item i {
+      font-size: 2rem;
+      color: var(--secondary);
+    }
+
+    .feature-item h4 {
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .feature-item p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* --- About Section --- */
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      box-shadow: -15px 15px 0 var(--light-bg);
+    }
+
+    .about-text h2 {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    /* --- Services Section --- */
+    .services {
+      background-color: var(--light-bg);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background-color: var(--card-bg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--secondary);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.5rem;
+      background-color: var(--light-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--secondary);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* --- Shop Section --- */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1.5rem;
+      font-size: 0.85rem;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .product-card:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .product-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.03);
+    }
+
+    .add-cart-btn {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      width: 100%;
+      padding: 0.8rem;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .add-cart-btn {
+      bottom: 0;
+    }
+
+    .product-details {
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .product-details .category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .product-details h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-details .price {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* --- Appointment Section --- */
+    .appointment {
+      background-color: var(--light-bg);
+    }
+
+    .appointment-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .appointment-info h2 {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .appointment-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .info-item i {
+      font-size: 1.5rem;
+      color: var(--secondary);
+    }
+
+    .info-item h5 {
+      font-size: 0.95rem;
+    }
+
+    .info-item p {
+      margin-bottom: 0;
+      font-size: 0.85rem;
+    }
+
+    .booking-form {
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    .booking-form h3 {
+      font-family: var(--font-title);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.85rem;
+      border: 1px solid var(--border-color);
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--secondary);
+    }
+
+    .booking-response {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* --- Shopping Cart Drawer --- */
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: none;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 380px;
+      height: 100%;
+      background-color: var(--card-bg);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease-in-out;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-overlay.open {
+      display: block;
+    }
+
+    .cart-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .cart-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .empty-cart-text {
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cart-item-info h4 {
+      font-size: 0.9rem;
+    }
+
+    .cart-item-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .remove-item {
+      color: #c93b3b;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background-color: var(--primary);
+      color: #fff;
+      padding-top: 4rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      padding: 0 8% 3rem 8%;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    .footer-links h4, .footer-contact h4, .footer-social h4 {
+      font-family: var(--font-title);
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links ul li a {
+      color: #999;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .footer-links ul li a:hover {
+      color: var(--secondary);
+    }
+
+    .footer-contact p {
+      color: #999;
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-contact i {
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      width: 38px;
+      height: 38px;
+      background-color: #222;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-icons a:hover {
+      background-color: var(--secondary);
+    }
+
+    .footer-copyright {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #0a0a0a;
+      color: #666;
+      font-size: 0.8rem;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 900px) {
+      .about-container, .appointment-wrapper {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        padding: 2rem 0;
+        align-items: center;
+        gap: 1.5rem;
+        display: none;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .cart-drawer {
+        width: 100%;
+        right: -100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">AURA <span>ATELIER</span></div>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#shop">Store</a></li>
+        <li><a href="#appointment">Book Fitting</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="cart-btn" id="cartBtn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-subtitle">Exquisite Handcrafted Apparel</span>
+      <h1>Precision Tailoring & Timeless Elegance</h1>
+      <p>Discover bespoke suits, custom-fit gowns, and curated ready-to-wear fashion tailored to perfection.</p>
+      <div class="hero-buttons">
+        <a href="#appointment" class="btn btn-gold">Book Appointment</a>
+        <a href="#shop" class="btn btn-outline">Shop Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / Value Proposition -->
+  <section class="features-bar">
+    <div class="feature-item">
+      <i class="fa-solid fa-tape"></i>
+      <div>
+        <h4>Custom Measurements</h4>
+        <p>Precision fit crafted for your silhouette</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fa-solid fa-gem"></i>
+      <div>
+        <h4>Premium Fabrics</h4>
+        <p>Over 500 luxury textiles sourced globally</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fa-solid fa-truck-fast"></i>
+      <div>
+        <h4>Worldwide Shipping</h4>
+        <p>Ready-to-wear delivered to your door</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=800&q=80" alt="Master Tailor Crafting Suit" />
+      </div>
+      <div class="about-text">
+        <span class="sub-heading">Our Heritage</span>
+        <h2>Master Craftsmen with a Passion for Detail</h2>
+        <p>At Aura Atelier, we combine classic bespoke traditions with modern design aesthetics. Every garment is carefully constructed using hand-cut patterns and high-grade fabrics to ensure flawless fit, structure, and style.</p>
+        <p>Whether you need a sharp double-breasted suit for a business gala, an opulent wedding gown, or wardrobe adjustments, our master tailors deliver perfection in every stitch.</p>
+        <a href="#services" class="btn btn-dark">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section services">
+    <div class="section-header">
+      <span class="sub-heading">What We Offer</span>
+      <h2>Tailoring Services</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon-box"><i class="fa-solid fa-scissors"></i></div>
+        <h3>Bespoke Suits & Tuxedos</h3>
+        <p>Individually pattern-cut and hand-finished suits crafted to match your exact specifications and body shape.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box"><i class="fa-solid fa-vest"></i></div>
+        <h3>Custom Dresses & Gowns</h3>
+        <p>From evening wear to cocktail dresses, we design garments tailored specifically for your special occasions.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box"><i class="fa-solid fa-shirt"></i></div>
+        <h3>Garment Alterations</h3>
+        <p>Expert adjustments including re-seaming, hem adjustments, waist sizing, and complete restyling of pre-owned attire.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box"><i class="fa-solid fa-user-tie"></i></div>
+        <h3>Bridal & Wedding Couture</h3>
+        <p>Complete wardrobe styling and bespoke tailoring for brides, grooms, and bridal parties.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="section shop">
+    <div class="section-header">
+      <span class="sub-heading">Online Store</span>
+      <h2>Ready-to-Wear Collection</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Filter Navigation -->
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">All Items</button>
+      <button class="filter-btn" data-filter="suits">Suits & Blazers</button>
+      <button class="filter-btn" data-filter="dresses">Dresses</button>
+      <button class="filter-btn" data-filter="shirts">Shirts & Tops</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="product-grid">
+      
+      <!-- Product 1 -->
+      <div class="product-card" data-category="suits">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80" alt="Navy Blue Suit" />
+          <button class="add-cart-btn" data-id="1" data-title="Navy Blue Double-Breasted Suit" data-price="480">Add to Bag</button>
+        </div>
+        <div class="product-details">
+          <span class="category">Suits</span>
+          <h3>Navy Double-Breasted Suit</h3>
+          <span class="price">$480.00</span>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card" data-category="dresses">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80" alt="Silk Evening Gown" />
+          <button class="add-cart-btn" data-id="2" data-title="Emerald Silk Evening Gown" data-price="350">Add to Bag</button>
+        </div>
+        <div class="product-details">
+          <span class="category">Dresses</span>
+          <h3>Emerald Silk Evening Gown</h3>
+          <span class="price">$350.00</span>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card" data-category="shirts">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80" alt="White Dress Shirt" />
+          <button class="add-cart-btn" data-id="3" data-title="Tailored White Oxford Shirt" data-price="110">Add to Bag</button>
+        </div>
+        <div class="product-details">
+          <span class="category">Shirts</span>
+          <h3>Tailored White Oxford Shirt</h3>
+          <span class="price">$110.00</span>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card" data-category="suits">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Charcoal Gray Suit" />
+          <button class="add-cart-btn" data-id="4" data-title="Charcoal Slim-Fit Suit" data-price="520">Add to Bag</button>
+        </div>
+        <div class="product-details">
+          <span class="category">Suits</span>
+          <h3>Charcoal Slim-Fit Suit</h3>
+          <span class="price">$520.00</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Appointment Booking Section -->
+  <section id="appointment" class="section appointment">
+    <div class="appointment-wrapper">
+      <div class="appointment-info">
+        <span class="sub-heading">Private Fitting</span>
+        <h2>Schedule an Appointment</h2>
+        <p>Book a consultation at our atelier. Meet our designer to choose fabrics, review style templates, and get full measurements taken.</p>
+        
+        <div class="info-list">
+          <div class="info-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <h5>Consultation Duration</h5>
+              <p>45 - 60 Minutes</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <h5>Atelier Location</h5>
+              <p>742 Evergreen Terrace, Fashion District</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="appointment-form-container">
+        <form id="bookingForm" class="booking-form">
+          <h3>Request Consultation</h3>
+          
+          <div class="form-group">
+            <input type="text" id="clientName" placeholder="Full Name" required />
+          </div>
+
+          <div class="form-group">
+            <input type="email" id="clientEmail" placeholder="Email Address" required />
+          </div>
+
+          <div class="form-group">
+            <input type="tel" id="clientPhone" placeholder="Phone Number" required />
+          </div>
+
+          <div class="form-group">
+            <select id="serviceSelect" required>
+              <option value="" disabled selected>Select Service Needed</option>
+              <option value="Bespoke Suit">Bespoke Suit Consultation</option>
+              <option value="Custom Dress">Custom Dress / Evening Gown</option>
+              <option value="Alterations">Garment Alterations</option>
+              <option value="Wedding Couture">Bridal / Wedding Couture</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="date" id="appointmentDate" required />
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-full">Confirm Booking Request</button>
+          <div id="bookingResponse" class="booking-response"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shopping Cart Side Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Shopping Bag</h3>
+      <button class="close-cart" id="closeCart">&times;</button>
+    </div>
+
+    <div class="cart-body" id="cartBody">
+      <p class="empty-cart-text">Your bag is currently empty.</p>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn btn-gold btn-full" id="checkoutBtn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>AURA ATELIER</h3>
+        <p>Bespoke tailoring, custom garments, and luxury fashion collections designed for perfection and crafted with precision.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#shop">Store</a></li>
+          <li><a href="#appointment">Appointments</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><i class="fa-solid fa-location-dot"></i> 742 Evergreen Terrace, Suite 100</p>
+        <p><i class="fa-solid fa-phone"></i> +1 (800) 555-0199</p>
+        <p><i class="fa-solid fa-envelope"></i> info@auraatelier.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; 2026 Aura Atelier. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Code -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- 1. Mobile Navigation Toggle ---
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // --- 2. Store Item Filtering ---
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const productCards = document.querySelectorAll('.product-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.getAttribute('data-filter');
+
+          productCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // --- 3. Shopping Cart Drawer & State ---
+      const cartBtn = document.getElementById('cartBtn');
+      const closeCart = document.getElementById('closeCart');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartOverlay = document.getElementById('cartOverlay');
+      const cartBody = document.getElementById('cartBody');
+      const cartBadge = document.getElementById('cartBadge');
+      const cartTotal = document.getElementById('cartTotal');
+      const addCartBtns = document.querySelectorAll('.add-cart-btn');
+
+      let cart = [];
+
+      const openCartDrawer = () => {
+        cartDrawer.classList.add('open');
+        cartOverlay.classList.add('open');
+      };
+
+      const closeCartDrawer = () => {
+        cartDrawer.classList.remove('open');
+        cartOverlay.classList.remove('open');
+      };
+
+      cartBtn.addEventListener('click', openCartDrawer);
+      closeCart.addEventListener('click', closeCartDrawer);
+      cartOverlay.addEventListener('click', closeCartDrawer);
+
+      // Add Item to Cart
+      addCartBtns.forEach(button => {
+        button.addEventListener('click', (e) => {
+          const id = e.target.getAttribute('data-id');
+          const title = e.target.getAttribute('data-title');
+          const price = parseFloat(e.target.getAttribute('data-price'));
+
+          const existingItem = cart.find(item => item.id === id);
+
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push({ id, title, price, quantity: 1 });
+          }
+
+          updateCart();
+          openCartDrawer();
+        });
+      });
+
+      // Render & Update Cart Data
+      function updateCart() {
+        cartBody.innerHTML = '';
+        let total = 0;
+        let itemCount = 0;
+
+        if (cart.length === 0) {
+          cartBody.innerHTML = '<p class="empty-cart-text">Your bag is currently empty.</p>';
+        } else {
+          cart.forEach(item => {
+            total += item.price * item.quantity;
+            itemCount += item.quantity;
+
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.classList.add('cart-item');
+            cartItemDiv.innerHTML = `
+              <div class="cart-item-info">
+                <h4>${item.title}</h4>
+                <span>$${item.price.toFixed(2)} × ${item.quantity}</span>
+              </div>
+              <span class="remove-item" data-id="${item.id}">Remove</span>
+            `;
+            cartBody.appendChild(cartItemDiv);
+          });
+        }
+
+        cartBadge.textContent = itemCount;
+        cartTotal.textContent = `$${total.toFixed(2)}`;
+
+        // Add click listeners to remove buttons
+        document.querySelectorAll('.remove-item').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const idToRemove = e.target.getAttribute('data-id');
+            cart = cart.filter(item => item.id !== idToRemove);
+            updateCart();
+          });
+        });
+      }
+
+      // --- 4. Appointment Form Handling ---
+      const bookingForm = document.getElementById('bookingForm');
+      const bookingResponse = document.getElementById('bookingResponse');
+
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('clientName').value;
+        const service = document.getElementById('serviceSelect').value;
+        const date = document.getElementById('appointmentDate').value;
+
+        bookingResponse.style.color = '#b89758';
+        bookingResponse.textContent = `Thank you ${name}! Your request for a ${service} consultation on ${date} has been received. We will contact you shortly to confirm.`;
+
+        bookingForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>
